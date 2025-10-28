@@ -1,6 +1,6 @@
 package model;
 
-public class Square {
+public class Square implements Shape{
 	private double side;
 	
 	public Square(double side) {
@@ -10,4 +10,14 @@ public class Square {
 	public double getSide() {
 		return side;
 	}
+	
+    @Override
+    public double calculateArea() {
+        return side * side;
+    }
+
+    @Override
+    public String getDescription() {
+        return String.format("Quadrado l: %.2f", side);
+    }
 }

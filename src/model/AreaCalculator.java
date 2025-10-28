@@ -5,45 +5,15 @@ import java.util.List;
 
 public class AreaCalculator {
 
-	private List<String> areas = new ArrayList<String>();
+    private List<String> areas = new ArrayList<>();
 
-	public double calculateArea(Object shape) {
+    public double calculateArea(Shape shape) {
+        double area = shape.calculateArea();
+        areas.add(String.format("%s = %.2f", shape.getDescription(), area));
+        return area;
+    }
 
-		Double area = 0.0;
-
-		if (shape instanceof Rectangle) {
-
-			Rectangle rectangle = (Rectangle) shape;
-
-			area = rectangle.getWidth() * rectangle.getHeight();
-
-			areas.add(String.format("Retângulo l: %.2f a: %.2f = %.2f", rectangle.getWidth(), rectangle.getHeight(), area));
-
-			return area;
-		} else if (shape instanceof Circle) {
-
-			Circle circle = (Circle) shape;
-			
-			area = Math.PI * Math.pow(circle.getRadius(), 2);
-			
-			areas.add(String.format("Círculo r: %.2f = %.2f", circle.getRadius(), area));
-			
-			return area;
-		} else if (shape instanceof Square) {
-
-			Square square = (Square) shape;
-			
-			area = square.getSide() * square.getSide();
-			
-			areas.add(String.format("Quadrado l: %.2f = %.2f", square.getSide(), area));
-			
-			return area;
-		}
-
-		return area;
-	}
-	
-	public List<String> getAreas() {
-		return new ArrayList<String>(areas);
-	}
+    public List<String> getAreas() {
+        return new ArrayList<>(areas);
+    }
 }

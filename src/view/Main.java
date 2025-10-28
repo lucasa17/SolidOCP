@@ -18,6 +18,7 @@ public class Main {
 		calculator.calculateArea(circle);
 		calculator.calculateArea(sqre);
 		
+		
 		for (String shape : calculator.getAreas())
 			System.out.println(shape);
 	}
